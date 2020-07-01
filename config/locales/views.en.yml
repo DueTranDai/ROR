@@ -1,0 +1,94 @@
+en:
+  views:
+    home:
+      index:
+        title: 'Home'
+    login:
+      title: 'Please Sign In'
+      email_plhd: 'Email'
+      password_plhd: 'Password'
+      remember_me: 'Remember me'
+      sign_in: 'Sign In'
+      google_sign_in: 'Sign in with Google'
+      google_login_error: 'Your email does not existed in the system. Please contact Admin for mor information.'
+    forget_password:
+      title: 'Forgot your password?'
+      send_password_instructions: 'Send me reset password instructions'
+      back: 'Back'
+    change_password:
+      title: 'Change your password'
+      change_password: 'Change my password'
+      back: 'Back'
+      curent_password_plhd: 'Current Password'
+      new_password_plhd: 'New Password'
+      password_confirmation_plhd: 'Confirm New Password'
+    users:
+      roles:
+        user: 'User'
+        super_admin: 'Super Admin'
+      index:
+        search: 'Search by name or email...'
+        cannot_edit: 'You cannot edit this user!'
+        cannot_delete: 'You cannot delete this user!'
+      status:
+        enable: 'Active'
+        disable: 'Disabled'
+      import:
+        no_file_selected: 'Please select a file.'
+        file_is_empty: 'File is empty. Please insert at least 1 row.'
+        success: 'Successfully imported %{imported}/%{total} users, %{skipped} skipped.'
+      tooltip:
+        has_good_catch: 'Cannot delete! This user has ever submitted good catch.'
+        has_action_items: 'Cannot delete! This user has action items.'
+        is_super_admin: 'Cannot delete! This user is super admin.'
+        current_user: 'Cannot delete! This user is logging in.'
+    roles:
+      index:
+        search: 'Search by name...'
+    questions:
+      index:
+        search: 'Search by title...'
+        cannot_delete: 'You cannot delete this question!'
+      mandatory:
+        yes: 'Yes'
+        no: 'No'
+    question_types:
+      drop_down: 'Drop down'
+      single: 'Single choice'
+      multiple: 'Multiple choice'
+      datetime: 'Datetime'
+      text: 'Text'
+      picture: 'Picture'
+      site: 'Site'
+      contribute_factor: 'Contribute Factor'
+      good_catch_prevention: 'Good Catch Prevention'
+    good_catches:
+      index:
+        search: 'Search by name...'
+      status:
+        unread: 'Unread'
+        accepted: 'Accepted'
+        in_progress: 'In Progress'
+        closed: 'Closed'
+      tab:
+        info: 'Info'
+        answers: 'Answers'
+        action_items: 'Action Items'
+      show:
+        info:
+          full_name: 'Submitted By'
+          email: 'Email'
+        action_item:
+          status:
+            assigned: 'Assigned'
+            complete: 'Complete'
+            closed: 'Closed'
+    app_settings:
+      keys:
+        my_target_line: 'Target Line My Good Catches'
+        site_target_line: 'Target Line Site Snapshot'
+        deadline_interval: 'Deadline Notification Interval (day)'
+        refresh_interval: 'Refresh Notification Interval (second)'
+        max_file_select: 'Max File Select'
+      index:
+        cannot_update: 'You must input all required fields!'

@@ -1,0 +1,32 @@
+// Login
+.m-login__logo {
+    img {
+      height: 80px;
+    }
+  }
+  
+  li.m-menu__item.active {
+    a {
+      background-color: #eee !important;
+    }
+    i {
+      color: #0a8cf0 !important;
+    }
+  }
+  
+  .form-group {
+    .m-checkbox-inline {
+      margin-top: 7px;
+  
+      span {
+        margin-right: 20px;
+  
+        label {
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+  
+  .error {color: #BF1E2D;}
+  

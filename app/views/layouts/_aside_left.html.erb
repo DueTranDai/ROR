@@ -1,0 +1,51 @@
+<!-- BEGIN: Left Aside -->
+<button class="m-aside-left-close m-aside-left-close--skin-light" id="m_aside_left_close_btn">
+  <i class="la la-close"></i>
+</button>
+
+<div id="m_aside_left" class="m-grid__item m-aside-left m-aside-left--skin-light">
+  <!-- BEGIN: Aside Menu -->
+  <div id="m_ver_menu" class="m-aside-menu m-aside-menu--skin-light m-aside-menu--submenu-skin-light" m-menu-vertical="1"
+       m-menu-scrollable="0" m-menu-dropdown-timeout="500">
+    <ul class="m-menu__nav m-menu__nav--dropdown-submenu-arrow">
+      <% if true %>
+        <li class="m-menu__item <%= 'm-menu__item--active' if controller_name == 'good_catches' %>">
+          <a href="<%= 'good_catches_path' %>" class="m-menu__link">
+            <i class="m-menu__link-icon flaticon-interface-10"></i>
+            <span class="m-menu__link-text"><%= t('menu.good_catches') %></span>
+          </a>
+        </li>
+
+        <li class="m-menu__item <%= 'm-menu__item--active' if controller_name == 'questions' %>">
+          <a href="<%= 'questions_path' %>" class="m-menu__link">
+            <i class="m-menu__link-icon flaticon-list-2"></i>
+            <span class="m-menu__link-text"><%= t('menu.questions') %></span>
+          </a>
+        </li>
+
+        <li class="m-menu__item <%= 'm-menu__item--active' if controller_name == 'users' %>">
+          <a href="<%= 'users_path' %>" class="m-menu__link">
+            <i class="m-menu__link-icon flaticon-users"></i>
+            <span class="m-menu__link-text"><%= t('menu.users') %></span>
+          </a>
+        </li>
+
+        <li class="m-menu__item <%= 'm-menu__item--active' if controller_name == 'roles' %>">
+          <a href="<%= 'roles_path' %>" class="m-menu__link">
+            <i class="m-menu__link-icon flaticon-user-settings"></i>
+            <span class="m-menu__link-text"><%= t('menu.roles') %></span>
+          </a>
+        </li>
+
+        <li class="m-menu__item <%= 'm-menu__item--active' if controller_name == 'app_settings' %>">
+          <a href="<%= 'app_settings_path' %>" class="m-menu__link">
+            <i class="m-menu__link-icon flaticon-cogwheel-2"></i>
+            <span class="m-menu__link-text"><%= t('menu.app_settings') %></span>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <!-- END: Aside Menu -->
+</div>
+<!-- END: Left Aside -->

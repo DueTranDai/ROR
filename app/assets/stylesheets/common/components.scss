@@ -1,0 +1,84 @@
+// Apply for common components
+.table {
+    thead {
+      th {
+        font-weight: bold;
+      }
+    }
+    tbody {
+      td {
+        &.col-img {
+          width: 40px;
+          padding: 2px;
+          vertical-align: middle;
+          text-align: center;
+  
+          img {
+            width: 36px;
+            height: 36px;
+          }
+        }
+  
+        &.col-action {
+          width: 85px;
+          white-space: nowrap;
+  
+          a:hover {
+            text-decoration: none;
+          }
+  
+          .m-btn {
+            box-shadow: none !important;
+          }
+        }
+      }
+    }
+  }
+  
+  .m-portlet__body {
+    &.table-first {
+      padding-top: 5px;
+    }
+  }
+  
+  .confirmation-buttons {
+    .btn-group {
+      > .btn {
+        margin-left: 5px;
+      }
+  
+      > .btn:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+  
+  // Custom for select2
+  .select2-container {
+    .select2-selection {
+      height: 38px;
+    }
+  
+    .select2-selection--single .select2-selection__arrow:before,
+    .select2-selection--multiple .select2-selection__arrow:before {
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      content: "\f078";
+    }
+  }
+  
+  .form-group-valid {
+    .select2-container {
+      .select2-selection {
+        border-color: #34bfa3;
+      }
+    }
+  }
+  
+  .form-group-invalid {
+    .select2-container {
+      .select2-selection {
+        border-color: #f4516c;
+      }
+    }
+  }

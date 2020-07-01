@@ -1,15 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>RORS</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>RORS</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-  <body>
-    <%= yield %>
-  </body>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body class="m-page--fluid m--skin- m-content--skin-light2 m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-light m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default">
+  <div class="m-grid m-grid--hor m-grid--root m-page">
+    <%= render partial: 'layouts/header' %>
+
+    <div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body">
+      <%= render partial: 'layouts/aside_left' %>
+
+      <div class="m-grid__item m-grid__item--fluid m-wrapper">
+        <%= yield %>
+      </div>
+    </div>
+
+    <%= render partial: 'layouts/footer' %>
+</div>
+</body>
+
 </html>

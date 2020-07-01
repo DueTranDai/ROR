@@ -4,6 +4,19 @@
 @import "font-awesome";
 @import "toastr";
 
+// Libraries from stylesheet file
+@import "vendor/jquery.mCustomScrollbar.min";
+@import "vendor/sweetalert2.min";
+@import "vendor/select2.min";
+@import "vendor/nv.d3";
+
 // Theme style
 @import "theme/style.bundle";
 @import "theme/fonts";
+
+// Common style
+@import "common/pagination";
+@import "common/components";
+
+// Style for specific page
+@import "main";

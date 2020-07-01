@@ -31,3 +31,11 @@
 
 en:
   hello: "Hello world"
+  menu:
+    settings: 'Settings'
+    users: 'Users'
+    roles: 'Roles'
+    questions: 'Questions'
+    question_options: 'Question Options'
+    good_catches: 'Good Catches'
+    app_settings: 'App Settings'

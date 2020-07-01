@@ -40,6 +40,8 @@ gem 'bootstrap', '~> 4.1.3'
 gem 'font-awesome-sass', '~> 5.3.1'
 # Use for notification
 gem 'toastr-rails'
+# # Use to provide the I18n translations on the Javascript
+# gem 'i18n-js'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
