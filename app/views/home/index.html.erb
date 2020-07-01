@@ -1,1 +1,11 @@
-<%= APPLICATION_NAME%>
+<%= render partial: 'layouts/breadcrumbs', locals: {breadcrumbs: {
+    title: t('views.home.index.title').pluralize
+}} %>
+
+<div class="m-content">
+  <div class="m-portlet m-portlet--mobile">
+    <div class="m-portlet__body">
+      <h1>Welcome to <%= APPLICATION_NAME %> Management System</h1>
+    </div>
+  </div>
+</div>

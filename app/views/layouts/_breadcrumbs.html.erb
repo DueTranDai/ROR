@@ -1,0 +1,30 @@
+<% if breadcrumbs %>
+  <div class="m-subheader">
+    <div class="d-flex align-items-center">
+      <div class="mr-auto">
+        <h3 class="m-subheader__title m-subheader__title--separator">
+          <%= breadcrumbs[:title] %>
+        </h3>
+        <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+          <li class="m-nav__item m-nav__item--home">
+            <a href="<%= root_path %>" class="m-nav__link m-nav__link--icon">
+              <i class="m-nav__link-icon fas fa-home"></i>
+            </a>
+          </li>
+          <% if breadcrumbs[:links].present? %>
+            <% breadcrumbs[:links].each do |link| %>
+              <li class="m-nav__separator">
+                -
+              </li>
+              <li class="m-nav__item">
+                <a href="<%= link[:href] %>" class="m-nav__link">
+                  <span class="m-nav__link-text"><%= link[:text] %></span>
+                </a>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+<% end %>
