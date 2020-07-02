@@ -42,7 +42,10 @@ gem 'font-awesome-sass', '~> 5.3.1'
 gem 'toastr-rails'
 # # Use to provide the I18n translations on the Javascript
 # gem 'i18n-js'
-
+# Use Devise for authentication
+gem 'devise'
+# Use for paginate
+gem 'will_paginate', '~> 3.1.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

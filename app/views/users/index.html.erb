@@ -1,0 +1,124 @@
+<%= render partial: 'layouts/breadcrumbs', locals: {breadcrumbs: {
+    title: t('model.user').pluralize,
+    links: [
+        {text: t('model.user').pluralize, href: users_path}
+    ]
+}} %>
+
+<div class="m-content">
+  <div class="m-portlet m-portlet--mobile">
+    <div class="m-portlet__head">
+      <div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-20">
+        <div class="row align-items-center">
+          <div class="col-xl-8 order-2 order-xl-1">
+            <form class="search-form" action="<%= users_path %>" accept-charset="UTF-8" method="get">
+              <div class="m-input-icon m-input-icon--left">
+                <%= text_field_tag 'q', params[:q],
+                                   class: 'form-control m-input',
+                                   placeholder: t('views.users.index.search') %>
+                <span class="m-input-icon__icon m-input-icon__icon--left">
+                  <span>
+                    <i class="fa fa-search"></i>
+                  </span>
+                </span>
+              </div>
+            </form>
+          </div>
+          <div class="col-xl-4 order-1 order-xl-2 m--align-right">
+            <%= link_to import_users_from_excel_users_path, class: 'btn btn-primary m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill' do %>
+              <%= t('btn.import_users') %>
+            <% end %>
+            <%= link_to new_user_path, class: 'btn btn-primary m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill' do %>
+              <i class="fa fa-plus-circle"></i>
+              <%= t('btn.new', resource: t('model.user')) %>
+            <% end %>
+            <div class="m-separator m-separator--dashed d-xl-none"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="m-portlet__body table-first">
+      <table class="table table-hover table-responsive-md">
+        <thead>
+        <tr>
+          <th><%= t('activerecord.attributes.user.full_name') %></th>
+          <th><%= t('activerecord.attributes.user.email') %></th>
+          <th><%= t('activerecord.attributes.user.last_login') %></th>
+          <th><%= t('activerecord.attributes.user.site') %></th>
+          <th class="text-center"><%= t('activerecord.attributes.user.role') %></th>
+          <th class="text-center"><%= t('activerecord.attributes.user.status') %></th>
+          <th></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% if @users.length > 0 %>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= user.full_name %></td>
+              <td><%= user.email %></td>
+              <td><%= AppUtils.format_date_time(DateTime.now) %></td>
+              <td>
+                <%= user.site_name %>
+              </td>
+              <td class="text-center">
+                <%= user.role_name %>
+              </td>
+              <td class="text-center">
+                <span class="m-badge <%= user.status_class %> m-badge--wide"><%= user.status_text %></span>
+              </td>
+              <td class="col-action text-center">
+                <% if user.can_edit(current_user) %>
+                  <%= link_to edit_user_path(user),
+                              class: 'btn btn-accent m-btn m-btn--icon btn-sm m-btn--icon-only m-btn--pill m-btn--air' do %>
+                    <i class="fas fa-edit"></i>
+                  <% end %>
+                <% end %>
+
+                <% if user.id == 'current_user.id' %>
+                  <span  style="opacity: 0.5;" class="btn btn-danger m-btn m-btn--icon btn-sm m-btn--icon-only m-btn--pill m-btn--air"
+                        data-toggle="tooltip" data-placement="top" title="<%= t('views.users.tooltip.current_user') %>">
+                      <i class="fas fa-trash-alt"></i>
+                  </span>
+                <% elsif user.is_super_admin %>
+                  <span  style="opacity: 0.5;" class="btn btn-danger m-btn m-btn--icon btn-sm m-btn--icon-only m-btn--pill m-btn--air"
+                        data-toggle="tooltip" data-placement="top" title="<%= t('views.users.tooltip.is_super_admin') %>">
+                    <i class="fas fa-trash-alt"></i>
+                  </span>
+                <% elsif user.good_catches.any? %>
+                  <span  style="opacity: 0.5;" class="btn btn-danger m-btn m-btn--icon btn-sm m-btn--icon-only m-btn--pill m-btn--air"
+                        data-toggle="tooltip" data-placement="top" title="<%= t('views.users.tooltip.has_good_catch') %>">
+                    <i class="fas fa-trash-alt"></i>
+                  </span>
+                <% elsif user.action_items.any? %>
+                  <span style="opacity: 0.5;" class="btn btn-danger m-btn m-btn--icon btn-sm m-btn--icon-only m-btn--pill m-btn--air"
+                        data-toggle="tooltip" data-placement="top" title="<%= t('views.users.tooltip.has_action_items') %>">
+                    <i class="fas fa-trash-alt"></i>
+                  </span>
+                <% else %>
+                  <%= link_to user, method: :delete,
+                              data: {'confirm-swal': t('confirm.delete')},
+                              class: 'btn btn-danger m-btn m-btn--icon btn-sm m-btn--icon-only m-btn--pill m-btn--air' do %>
+                    <i class="fas fa-trash-alt"></i>
+                  <% end %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        <% else %>
+          <tr>
+            <td colspan="100%" class="text-center"><%= t('no_record', resource: (t('model.user')).downcase) %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+
+      <% if @users.length > 0 && @users.total_pages > 1 %>
+        <div class="custom_pagination">
+          <%= will_paginate @users, container: false, params: params %>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>

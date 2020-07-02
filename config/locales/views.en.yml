@@ -1,4 +1,12 @@
 en:
+  model:
+    user: 'User'
+    role: 'Role'
+    question: 'Question'
+    question_option: 'Option'
+    good_catch: 'Good Catch'
+    action_item: 'Action Item'
+    app_setting: 'App Setting'
   views:
     home:
       index:
