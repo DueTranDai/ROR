@@ -1,3 +1,4 @@
+require 'app_utils'
 class UsersController < ApplicationController
     # GET /users
     def index
