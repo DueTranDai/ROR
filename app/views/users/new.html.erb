@@ -1,0 +1,15 @@
+<%= render partial: 'layouts/breadcrumbs', locals: {breadcrumbs: {
+    title: t('model.user').pluralize,
+    links: [
+        {text: t('model.user').pluralize, href: users_path},
+        {text: t('title.new', resource: t('model.user')), href: new_user_path}
+    ]
+}} %>
+
+<div class="m-content">
+  <div class="m-portlet m-portlet--mobile">
+    <div class="m-portlet__body">
+      <%= render 'form', user: @user %>
+    </div>
+  </div>
+</div>

@@ -39,3 +39,14 @@ en:
     question_options: 'Question Options'
     good_catches: 'Good Catches'
     app_settings: 'App Settings'
+  btn:
+    new: 'New %{resource}'
+    import_users: 'Import Users'
+  model:
+    user: 'User'
+    role: 'Role'
+    question: 'Question'
+    question_option: 'Option'
+    good_catch: 'Good Catch'
+    action_item: 'Action Item'
+    app_setting: 'App Setting'

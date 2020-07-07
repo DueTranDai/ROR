@@ -4,7 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   belongs_to :site, optional: true
-  
+  belongs_to :role, optional: true
+  has_many :good_catches
   def site_name
     self.site.blank? ? nil : self.site.name
   end
