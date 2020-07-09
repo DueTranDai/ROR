@@ -1,16 +1,28 @@
-<h2>Forgot your password?</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="m-grid__item m-grid__item--fluid m-grid m-grid--hor m-login m-login--signin m-login--2 m-login-2--skin-2" id="m_login">
+  <div class="m-grid__item m-grid__item--fluid	m-login__wrapper">
+    <div class="m-login__container">
+      <div class="m-login__logo">
+        <span>
+          <%= image_tag 'logo.ico' %>
+        </span>
+      </div>
+      <div class="m-login__signin">
+        <div class="m-login__head">
+          <h3 class="m-login__title">
+            <%= t('views.forget_password.title') %>
+          </h3>
+        </div>
+        <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: {class: 'm-login__form m-form'}) do |f| %>
+          <div class="form-group m-form__group">
+            <%= f.text_field :email, autofocus: true, autocomplete: "email", class: 'form-control m-input', placeholder: t('views.login.email_plhd') %>
+          </div>
+          <div class="error"><%= (devise_error_messages!).html_safe %></div>
+          <div class="m-login__form-action">
+            <%= f.submit t('views.forget_password.send_password_instructions'), class: 'btn btn-primary m-btn m-btn--pill m-btn--custom m-btn--air m-login__btn m-login__btn--primary' %>
+            <%= link_to t('views.forget_password.back'), new_user_session_path, class: 'btn btn-info m-btn m-btn--pill m-btn--custom m-btn--air m-login__btn m-login__btn--primary' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

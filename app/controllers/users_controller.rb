@@ -12,11 +12,10 @@ class UsersController < ApplicationController
     def new
         @user = User.new
     end
-    def destroy
-      logger.debug "Article should be valid123"
-    end
+    
     def create
         @user = User.new(user_params)
+        @user.parse_data
         if @user.save
           flash[:success] = t('success_message', :resource => t('model.user'), :action => t('action.created'))
           redirect_to users_path

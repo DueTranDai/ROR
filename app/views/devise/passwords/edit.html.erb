@@ -1,25 +1,31 @@
-<h2>Change your password</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <%= f.hidden_field :reset_password_token %>
-
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+<div class="m-grid__item m-grid__item--fluid m-grid m-grid--hor m-login m-login--signin m-login--2 m-login-2--skin-2" id="m_login">
+  <div class="m-grid__item m-grid__item--fluid	m-login__wrapper">
+    <div class="m-login__container">
+      <div class="m-login__logo">
+        <span>
+          <%= image_tag 'logo.ico' %>
+        </span>
+      </div>
+      <div class="m-login__signin">
+        <div class="m-login__head">
+          <h3 class="m-login__title">
+            <%= t('views.change_password.title') %>
+          </h3>
+        </div>
+        <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :put, class: 'm-login__form m-form'}) do |f| %>
+          <%= f.hidden_field :reset_password_token %>
+          <div class="form-group m-form__group">
+            <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: 'form-control m-input', placeholder: t('views.change_password.new_password_plhd') %>
+          </div>
+          <div class="form-group m-form__group">
+            <%= f.password_field :password_confirmation, autofocus: true, autocomplete: "off", class: 'form-control m-input', placeholder: t('views.change_password.password_confirmation_plhd') %>
+          </div>
+          <div class="error"><%= (devise_error_messages!).html_safe %></div>
+          <div class="m-login__form-action">
+            <%= f.submit t('views.change_password.change_password'), class: 'btn btn-primary m-btn m-btn--pill m-btn--custom m-btn--air m-login__btn m-login__btn--primary' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

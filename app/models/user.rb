@@ -1,8 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+  devise :database_authenticatable, :rememberable, :trackable, :recoverable, :validatable, :registerable
   devise :omniauthable, :omniauth_providers => [:google_oauth2]
   belongs_to :site, optional: true
   belongs_to :role, optional: true
@@ -23,6 +22,12 @@ class User < ApplicationRecord
   end
   def is_super_admin
     SUPER_ADMIN.include?(email)
+  end
+  def parse_data
+    {
+        :id => id,
+        :full_name => full_name
+    }
   end
   def can_edit(current_user)
     # return false if self.is_super_admin && self.id != current_user.id
