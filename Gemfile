@@ -37,7 +37,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # Use jquery
 gem 'jquery-rails'
 # Use bootstrap 4 framework
-gem 'bootstrap', '~> 4.1.3'
+gem 'bootstrap', '~> 4.3.1'
 # Use for common icons
 gem 'font-awesome-sass', '~> 5.3.1'
 # Use for notification
