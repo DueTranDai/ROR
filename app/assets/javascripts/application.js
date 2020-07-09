@@ -10,7 +10,30 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+// Require this file to override rails-ujs event listeners
+//= require ./common/sweet_alert_confirm
+//
+// Rails 5.2 gem
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require_tree .
+// require_tree .
+
+// Libraries from gem
+//= require jquery3
+//= require popper
+//= require bootstrap-sprockets
+//= require toastr
+//= require i18n
+//= require i18n/translations
+
+// Libraries from javascript file
+//= require ./vendor/jquery.mCustomScrollbar.min
+//= require ./vendor/sweetalert2.min
+//= require ./vendor/select2.full.min
+
+// Theme javascript
+//= require ./theme/scripts.bundle
+
+// Common scripts
+//= require ./common/initial

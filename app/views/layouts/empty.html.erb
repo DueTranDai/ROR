@@ -30,21 +30,9 @@
 
 <body class="m-page--fluid m--skin- m-content--skin-light2 m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-light m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default">
 
-<div class="m-grid m-grid--hor m-grid--root m-page">
-  <%= render partial: 'layouts/header' %>
-
-  <div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body">
-    <%= render partial: 'layouts/aside_left' %>
-
-    <div class="m-grid__item m-grid__item--fluid m-wrapper">
+<div class="m-grid__item m-grid__item--fluid m-wrapper">
       <%= yield %>
-    </div>
-  </div>
-
-  <%= render partial: 'layouts/footer' %>
 </div>
-
-<%= render partial: 'layouts/scroll_top' %>
 
 <!-- Scripts -->
 <%= javascript_include_tag 'application' %>

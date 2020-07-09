@@ -68,10 +68,10 @@
                         </div>
                         <div class="m-card-user__details">
                           <span class="m-card-user__name m--font-weight-500">
-                            <%= 'current_user.full_name' %>
+                            <%= current_user.full_name %>
                           </span>
                           <span class="m-card-user__email m--font-weight-300">
-                            <%= 'current_user.email' %>
+                            <%= current_user.email %>
                           </span>
                         </div>
                       </div>
@@ -80,9 +80,9 @@
                       <div class="m-dropdown__content">
                         <ul class="m-nav m-nav--skin-light">
                           <li class="m-nav__item">
-                            <%= link_to('Change Password', 'edit_user_registration_path', class: 'btn m-btn--pill btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder') %>
+                            <%= link_to('Change Password', edit_user_registration_path, class: 'btn m-btn--pill btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder') %>
                             <br/><br/>
-                            <%= link_to('Logout', 'destroy_user_session_path', method: :delete, class: 'btn m-btn--pill btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder') %>
+                            <%= link_to('Logout123', destroy_user_session_path, method: :delete, class: 'btn m-btn--pill btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder') %>
                           </li>
                         </ul>
                       </div>

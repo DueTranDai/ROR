@@ -1,43 +1,40 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="m-grid__item m-grid__item--fluid m-grid m-grid--hor m-login m-login--signin m-login--2 m-login-2--skin-2" id="m_login">
+  <div class="m-grid__item m-grid__item--fluid	m-login__wrapper">
+    <div class="m-login__container">
+      <div class="m-login__logo">
+        <span>
+          <%= image_tag 'logo.ico' %>
+        </span>
+      </div>
+      <div class="m-login__signin">
+        <div class="m-login__head">
+          <h3 class="m-login__title">
+            <%= t('views.change_password.title') %>
+          </h3>
+        </div>
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {method: :put, class: 'm-login__form m-form'}) do |f| %>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <% end %>
+          <%= f.hidden_field :reset_password_token %>
+          <div class="form-group m-form__group">
+            <%= f.password_field :current_password, autofocus: true, autocomplete: "current-password", class: 'form-control m-input', placeholder: t('views.change_password.curent_password_plhd') %>
+          </div>
+          <div class="form-group m-form__group">
+            <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: 'form-control m-input', placeholder: t('views.change_password.new_password_plhd') %>
+          </div>
+          <div class="form-group m-form__group">
+            <%= f.password_field :password_confirmation, autofocus: true, autocomplete: "off", class: 'form-control m-input', placeholder: t('views.change_password.password_confirmation_plhd') %>
+          </div>
+          <div class="error"><%= (devise_error_messages!).html_safe %></div>
+          <div class="m-login__form-action">
+            <%= f.submit t('views.change_password.change_password'), class: 'btn btn-primary m-btn m-btn--pill m-btn--custom m-btn--air m-login__btn m-login__btn--primary' %>
+            <%= link_to t('views.change_password.back'), :back, class: 'btn btn-info m-btn m-btn--pill m-btn--custom m-btn--air m-login__btn m-login__btn--primary' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
+</div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
