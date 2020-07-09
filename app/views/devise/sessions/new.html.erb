@@ -36,7 +36,7 @@
           <% end -%>
           <div class="m-login__form-action">
             <%= f.submit t('views.login.sign_in'), class: 'btn btn-primary m-btn m-btn--pill m-btn--custom m-btn--air m-login__btn m-login__btn--primary' %>
-            
+            <%= link_to t('views.login.google_sign_in'), user_google_oauth2_omniauth_authorize_path, class: 'btn btn-success m-btn m-btn--pill m-btn--custom m-btn--air m-login__btn m-login__btn--primary' %>
           </div>
         <% end %>
       </div>

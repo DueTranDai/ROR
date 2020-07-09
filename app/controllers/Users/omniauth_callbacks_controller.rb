@@ -27,4 +27,24 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # def after_omniauth_failure_path_for(scope)
   #   super(scope)
   # end
+  def google_oauth2
+    # You need to implement the method below in your model (e.g. app/models/user.rb)
+    email = request.env['omniauth.auth'].info.email
+
+    email_existed = User.where(:email => email).any?
+
+    unless email_existed
+      flash[:error] = I18n.t 'views.login.google_login_error', kind: 'Google'
+      return redirect_to new_user_session_url
+    end
+    @user = User.from_omniauth(request.env['omniauth.auth'])
+
+    if @user.persisted?
+      flash[:success] = I18n.t 'devise.omniauth_callbacks.success', kind: 'Google'
+      sign_in_and_redirect @user, event: :authentication
+    else
+      flash[:error] = I18n.t 'devise.omniauth_callbacks.failure', kind: 'Google'
+      redirect_to new_user_session_url
+    end
+  end
 end
