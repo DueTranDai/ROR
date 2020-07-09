@@ -16,7 +16,7 @@
 // Rails 5.2 gem
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
+// require turbolinks
 // require_tree .
 
 // Libraries from gem

@@ -12,7 +12,9 @@ class UsersController < ApplicationController
     def new
         @user = User.new
     end
-    
+    def destroy
+      logger.debug "Article should be valid123"
+    end
     def create
         @user = User.new(user_params)
         if @user.save
